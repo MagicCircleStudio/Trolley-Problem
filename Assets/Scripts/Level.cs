@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Level : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public RoutePoints baseRoute;
+	public RoutePoints aRoute;
+	public RoutePoints bRoute;
+	public Transform cMAnchor;
+
 }

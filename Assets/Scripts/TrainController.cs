@@ -14,10 +14,6 @@ public class TrainController : MonoBehaviour {
 	public int towardPointIndex = 0;
 	public float distGap = 0.1f;
 
-	public RoutePoints baseRoute;
-	public RoutePoints aRoute;
-	public RoutePoints bRoute;
-
 	public List<Vector3> baseRoutePoints = new List<Vector3>();
 	public List<Vector3> aRoutePoints = new List<Vector3>();
 	public List<Vector3> bRoutePoints = new List<Vector3>();
@@ -31,7 +27,7 @@ public class TrainController : MonoBehaviour {
 	public TimelineAsset firstToOverview;
 	public TimelineAsset firstToThrid;
 
-	void UpdateRoutePoints() {
+	public void UpdateRoutePoints(RoutePoints baseRoute, RoutePoints aRoute, RoutePoints bRoute) {
 		baseRoutePoints.Clear();
 		foreach (var item in baseRoute.points) {
 			baseRoutePoints.Add(item.position);
@@ -49,7 +45,6 @@ public class TrainController : MonoBehaviour {
 	}
 
 	private void Start() {
-		UpdateRoutePoints();
 
 	}
 
