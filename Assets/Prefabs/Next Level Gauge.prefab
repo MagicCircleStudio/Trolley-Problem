@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4550391447937352}
   - component: {fileID: 65466521616267622}
   - component: {fileID: 114083191553133698}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Next Level Gauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}

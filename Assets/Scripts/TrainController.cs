@@ -7,25 +7,33 @@ using UnityEngine.Timeline;
 public class TrainController : MonoBehaviour {
 
 	public bool enableMove = false;
+	public bool enableInput = false;
 	public bool enteringNextLevel = false;
 
 	public float speed = 3.0f;
+	public float RotateSpeed = 300f;
 	public int routeSelected = -1;
 	public int towardPointIndex = 0;
-	public float distGap = 0.1f;
+	public float distGap = 0.5f;
 
-	public List<Vector3> baseRoutePoints = new List<Vector3>();
-	public List<Vector3> aRoutePoints = new List<Vector3>();
-	public List<Vector3> bRoutePoints = new List<Vector3>();
+	[HideInInspector] public List<Vector3> baseRoutePoints = new List<Vector3>();
+	[HideInInspector] public List<Vector3> aRoutePoints = new List<Vector3>();
+	[HideInInspector] public List<Vector3> bRoutePoints = new List<Vector3>();
 
 	[Header("Timeline")]
 	public PlayableDirector director;
 	public TimelineAsset thridToOverview;
+	// public TimelineAsset overviewTodetail;
 	public TimelineAsset overviewToThrid;
-	public TimelineAsset overviewToFirst;
-	public TimelineAsset thridToFirst;
-	public TimelineAsset firstToOverview;
-	public TimelineAsset firstToThrid;
+	// public TimelineAsset overviewToFirst;
+	// public TimelineAsset thridToFirst;
+	// public TimelineAsset firstToOverview;
+	// public TimelineAsset firstToThrid;
+
+	[Header("Effects")]
+	public ParticleSystem boostingFire;
+	public bool enablePressToBoost = false;
+	public bool pressToBoost = false;
 
 	public void UpdateRoutePoints(RoutePoints baseRoute, RoutePoints aRoute, RoutePoints bRoute) {
 		baseRoutePoints.Clear();
@@ -44,8 +52,18 @@ public class TrainController : MonoBehaviour {
 		}
 	}
 
-	private void Start() {
+	public void StartBoost() {
+		speed = 25;
+		boostingFire.Play();
+	}
 
+	public void StopBoost() {
+		speed = 15;
+		boostingFire.Stop();
+	}
+
+	private void Start() {
+		boostingFire.Stop();
 	}
 
 	private void Update() {
@@ -61,6 +79,8 @@ public class TrainController : MonoBehaviour {
 						towardPointIndex = 0;
 						routeSelected = 1;
 						enableMove = false;
+
+						Debug.Log("Play thrid to overview");
 						director.Play(thridToOverview);
 					} else {
 						dist = baseRoutePoints[towardPointIndex];
@@ -98,21 +118,26 @@ public class TrainController : MonoBehaviour {
 					dist = bRoutePoints[towardPointIndex];
 				}
 			}
+			// Vector3 rotateVector = dist - transform.position;
+			// Quaternion newRotation = Quaternion.LookRotation(rotateVector);
+			// transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, RotateSpeed * Time.deltaTime);
 
 			transform.LookAt(dist);
+			// if (transform.eulerAngles.y - 179 > 0) {
+			// transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 0, transform.eulerAngles.z);
+			// }
+
 			transform.position += transform.forward * speed * Time.deltaTime;
 		} else {
-			if (Input.GetKeyDown(KeyCode.A)) {
-				routeSelected = 0;
-				enableMove = true;
-				director.Play(overviewToThrid);
-			}
-			if (Input.GetKeyDown(KeyCode.B)) {
-				routeSelected = 1;
-				enableMove = true;
-				director.Play(overviewToThrid);
-			}
+
 		}
+		if (enablePressToBoost)
+			if (Input.GetKeyDown(KeyCode.LeftShift)) {
+				pressToBoost = !pressToBoost;
+				Debug.Log("Switch Boost");
+				if (pressToBoost) StartBoost();
+				else StopBoost();
+			}
 
 	}
 
