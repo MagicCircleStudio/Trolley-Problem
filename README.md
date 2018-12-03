@@ -35,3 +35,8 @@ https://magic-circle-studio.itch.io/trolley-problem-must-be-sacrisfied
 https://magic-circle-studio.itch.io/trolley-problem-must-be-sacrisfied
 
 ## Screen Shot
+
+![1](https://github.com/MagicCircleStudio/Trolley-Problem/blob/master/README%20Assets/1.png)
+![2](https://github.com/MagicCircleStudio/Trolley-Problem/blob/master/README%20Assets/2.png)
+![3](https://github.com/MagicCircleStudio/Trolley-Problem/blob/master/README%20Assets/3.png)
+![4](https://github.com/MagicCircleStudio/Trolley-Problem/blob/master/README%20Assets/4.png)
