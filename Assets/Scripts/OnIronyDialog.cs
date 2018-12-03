@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-
 public class OnIronyDialog : MonoBehaviour {
 
 	public CinemachineVirtualCamera overviewCam;
@@ -11,13 +10,19 @@ public class OnIronyDialog : MonoBehaviour {
 	public LevelManager levelManager;
 
 	private void OnEnable() {
-		Debug.Log("Enable a Irony dialog");
-		
-		menu.ShowDialog(levelManager.level.ironyDialog);
+		// Debug.Log("Enable a Irony dialog");
+		if (levelManager.currentLevelIndex == 2) {
+			if (levelManager.trainController.enablePressToBoost) {
+				menu.ShowDialog(levelManager.level.GetIronyDialog(menu.languageChoice));
+			}
+		} else {
+			menu.ShowDialog(levelManager.level.GetIronyDialog(menu.languageChoice));
+		}
+
 	}
 
 	private void OnDisable() {
-		Debug.Log("Disable a Irony dialog");
+		// Debug.Log("Disable a Irony dialog");
 		menu.CloseDialog();
 	}
 }

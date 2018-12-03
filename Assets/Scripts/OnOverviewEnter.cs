@@ -9,7 +9,7 @@ public class OnOverviewEnter : MonoBehaviour {
 	public TrainController train;
 
 	private void OnEnable() {
-		Debug.Log("Enter Overview");
+		// Debug.Log("Enter Overview");
 		overviewCam.Priority = 11;
 		train.enableInput = true;
 	}

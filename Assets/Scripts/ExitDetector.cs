@@ -20,34 +20,34 @@ public class ExitDetector : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		Debug.Log("Choice Make: " + choiceType);
+		// Debug.Log("Choice Make: " + choiceType);
 
 		if (hintBoardStr != "") {
-			Debug.Log(hintBoardStr);
+			menu.ShowHintBoard(hintBoardStr);
 		}
 
 		if (choiceType == 0) {
 			levelManager.trainController.totalKills += levelManager.level.aRouteKills;
-			Debug.Log("total kills: " + levelManager.trainController.totalKills);
+			// Debug.Log("total kills: " + levelManager.trainController.totalKills);
 
 			// Debug.Log(Network.queryPage("update_level", levelManager.currentLevelIndex.ToString(), "0"));
-			menu.ShowHintBoard("60% people make same choices with you");
+			// 
 			levelManager.GenerateGauges(transform.position, transform.forward, transform.rotation);
 
 		} else if (choiceType == 1) {
 			levelManager.trainController.totalKills += levelManager.level.bRouteKills;
-			Debug.Log("total kills: " + levelManager.trainController.totalKills);
+			// Debug.Log("total kills: " + levelManager.trainController.totalKills);
 
 			// Debug.Log(Network.queryPage("update_level", levelManager.currentLevelIndex.ToString(), "0"));
-			menu.ShowHintBoard("60% people make same choices with you");
+			// menu.ShowHintBoard("60% people make same choices with you");
 			levelManager.GenerateGauges(transform.position, transform.forward, transform.rotation);
 
 		} else if (choiceType == -2) {
 			levelManager.trainController.totalKills += levelManager.level.bRouteKills;
-			Debug.Log("total kills: " + levelManager.trainController.totalKills);
+			// Debug.Log("total kills: " + levelManager.trainController.totalKills);
 
 			// Debug.Log(Network.queryPage("update_level", levelManager.currentLevelIndex.ToString(), "0"));
-			menu.ShowHintBoard("60% people make same choices with you");
+			// menu.ShowHintBoard("60% people make same choices with you");
 
 			levelManager.AssignLevel(levelToAssign);
 			// levelManager.GenerateGauges(transform.position, transform.forward, transform.rotation);

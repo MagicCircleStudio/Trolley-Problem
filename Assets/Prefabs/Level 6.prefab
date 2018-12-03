@@ -1316,6 +1316,7 @@ GameObject:
   - component: {fileID: 54991517939686522}
   - component: {fileID: 136367052457164366}
   - component: {fileID: 114546460814845724}
+  - component: {fileID: 82149779077582266}
   m_Layer: 10
   m_Name: men
   m_TagString: Untagged
@@ -4028,6 +4029,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 4, z: 2}
   m_Center: {x: 0, y: 2, z: 1}
+--- !u!82 &82149779077582266
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872122887826242}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114148388604285360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4125,6 +4206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cf74607e3f305428f7ecfcf11b7583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audios: []
+  source: {fileID: 0}
   rb: {fileID: 0}
 --- !u!114 &114456003006012136
 MonoBehaviour:
@@ -4153,6 +4236,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cf74607e3f305428f7ecfcf11b7583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: d74ac001d961bb44a94f74c1e55203b4, type: 3}
+  - {fileID: 8300000, guid: 5f97cdff0d286bc4aa44bfe5f889a2b1, type: 3}
+  - {fileID: 8300000, guid: e26aacae1ffbb4b47ae0ed41b9cbdbc5, type: 3}
+  - {fileID: 8300000, guid: 591360161f4c1cb47955a85afbeb4b2f, type: 3}
+  - {fileID: 8300000, guid: 75081e26dec0e104eb878c62b60eb63d, type: 3}
+  - {fileID: 8300000, guid: d1ebd46686ec3b04589149030618931c, type: 3}
+  - {fileID: 8300000, guid: 08694f9a096d2ba459955732695e76bb, type: 3}
+  source: {fileID: 0}
   rb: {fileID: 0}
 --- !u!114 &114753091205158780
 MonoBehaviour:
@@ -4170,9 +4262,15 @@ MonoBehaviour:
   bRoute: {fileID: 114168281499026868}
   aRouteKills: 0
   bRouteKills: 1
-  aRouteDialog: a brain in vat who can also feel hurts
-  bRouteDialog: a human being
-  ironyDialog: 
+  aRouteDialogEN: a brain in vat who can also feel hurts
+  bRouteDialogEN: a human being
+  ironyDialogEN: 
+  aRouteDialogCN: "\u4E00\u4E2A\u80FD\u591F\u611F\u53D7\u5230\u75BC\u75DB\u7684\u7F38\u4E2D\u4E4B\u8111"
+  bRouteDialogCN: "\u4E00\u4E2A\u4EBA\u7C7B"
+  ironyDialogCN: 
+  aRouteDialogJP: a brain in vat who can also feel hurts
+  bRouteDialogJP: "\u666E\u901A\u306E\u4EBA\u9593"
+  ironyDialogJP: 
   overviewCMAnchor: {fileID: 4106903971142240}
   aRouteCMAnchor: {fileID: 4824194473370254}
   bRouteCMAnchor: {fileID: 4838408683790052}

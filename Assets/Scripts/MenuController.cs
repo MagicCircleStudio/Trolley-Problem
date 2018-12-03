@@ -12,6 +12,30 @@ public class MenuController : MonoBehaviour {
 	public GameObject hintBoard;
 	public Text hintBoardText;
 
+	public int languageChoice = 0; //EN:0 CN:1 JP:2
+	public Image languageIcon;
+	public Sprite enIcon;
+	public Sprite cnIcon;
+	public Sprite jpIcon;
+
+	public void OnSwitchLanguage() {
+		languageChoice = (languageChoice + 1) % 3;
+		switch (languageChoice) {
+			case 0:
+				languageIcon.sprite = enIcon;
+				break;
+			case 1:
+				languageIcon.sprite = cnIcon;
+				break;
+			case 2:
+				languageIcon.sprite = jpIcon;
+				break;
+			default:
+				languageIcon.sprite = enIcon;
+				break;
+		}
+	}
+
 	public void OnMenuButtonPressed() {
 		// Debug.Log("Menu");
 		menuCorner.SetActive(false);

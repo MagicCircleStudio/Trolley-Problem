@@ -13,9 +13,91 @@ public class Level : MonoBehaviour {
 	public int aRouteKills = 0;
 	public int bRouteKills = 0;
 
-	public string aRouteDialog;
-	public string bRouteDialog;
-	public string ironyDialog;
+	// public int languangeChoice = 0; // 0:EN 1:CN 2:JP
+
+	public string GetARouteDialog(int languangeChoice) {
+		switch (languangeChoice) {
+			case 1:
+				return aRouteDialogCN;
+			case 2:
+				return aRouteDialogJP;
+			default:
+				return aRouteDialogEN;
+		}
+
+	}
+	public string GetBRouteDialog(int languangeChoice) {
+		switch (languangeChoice) {
+			case 1:
+				return bRouteDialogCN;
+			case 2:
+				return bRouteDialogJP;
+			default:
+				return bRouteDialogEN;
+		}
+
+	}
+
+	public string GetIronyDialog(int languangeChoice) {
+		switch (languangeChoice) {
+			case 1:
+				return ironyDialogCN;
+			case 2:
+				return ironyDialogJP;
+			default:
+				return ironyDialogEN;
+		}
+
+	}
+
+	// public string aRouteDialog {
+	// 	get {
+	// 		switch (languangeChoice) {
+	// 			case 1:
+	// 				return aRouteDialogCN;
+	// 			case 2:
+	// 				return aRouteDialogJP;
+	// 			default:
+	// 				return aRouteDialogEN;
+	// 		}
+	// 	}
+	// }
+	// public string bRouteDialog {
+	// 	get {
+	// 		switch (languangeChoice) {
+	// 			case 1:
+	// 				return bRouteDialogCN;
+	// 			case 2:
+	// 				return bRouteDialogJP;
+	// 			default:
+	// 				return bRouteDialogEN;
+	// 		}
+	// 	}
+	// }
+	// public string ironyDialog {
+	// 	get {
+	// 		switch (languangeChoice) {
+	// 			case 1:
+	// 				return ironyDialogCN;
+	// 			case 2:
+	// 				return ironyDialogJP;
+	// 			default:
+	// 				return ironyDialogEN;
+	// 		}
+	// 	}
+	// }
+
+	public string aRouteDialogEN;
+	public string bRouteDialogEN;
+	public string ironyDialogEN;
+
+	public string aRouteDialogCN;
+	public string bRouteDialogCN;
+	public string ironyDialogCN;
+
+	public string aRouteDialogJP;
+	public string bRouteDialogJP;
+	public string ironyDialogJP;
 
 	public Transform overviewCMAnchor;
 	public Transform aRouteCMAnchor;

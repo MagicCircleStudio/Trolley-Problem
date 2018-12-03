@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.PostProcessing;
 using UnityEngine.Timeline;
 
 public class TrainController : MonoBehaviour {
@@ -16,7 +17,19 @@ public class TrainController : MonoBehaviour {
 	public int towardPointIndex = 0;
 	public float distGap = 0.5f;
 
-	public int totalKills = 0;
+	public int totalKills {
+		get { return _totalKills; }
+		set {
+			_totalKills = value;
+			var vSettings = ppProfile.vignette.settings;
+			float v = (float) _totalKills / 50.0f;
+			// Debug.Log(_totalKills);
+			vSettings.color = new Color(Mathf.Min(v, 1f), 0f, 0f);
+			// Debug.Log(vSettings.color);
+			ppProfile.vignette.settings = vSettings;
+		}
+	}
+	private int _totalKills = 0;
 
 	[HideInInspector] public List<Vector3> baseRoutePoints = new List<Vector3>();
 	[HideInInspector] public List<Vector3> aRoutePoints = new List<Vector3>();
@@ -37,6 +50,8 @@ public class TrainController : MonoBehaviour {
 	public ParticleSystem boostingFire;
 	public bool enablePressToBoost = false;
 	public bool pressToBoost = false;
+	public PostProcessingBehaviour ppBahaviour;
+	public PostProcessingProfile ppProfile;
 
 	public void UpdateRoutePoints(RoutePoints baseRoute, RoutePoints aRoute, RoutePoints bRoute) {
 		baseRoutePoints.Clear();
@@ -67,6 +82,10 @@ public class TrainController : MonoBehaviour {
 
 	private void Start() {
 		boostingFire.Stop();
+		ppProfile = ppBahaviour.profile;
+		var vSettings = ppProfile.vignette.settings;
+		vSettings.color = new Color(0f, 0f, 0f);
+		ppProfile.vignette.settings = vSettings;
 	}
 
 	private void Update() {
@@ -83,7 +102,7 @@ public class TrainController : MonoBehaviour {
 						routeSelected = 0;
 						enableMove = false;
 
-						Debug.Log("Play thrid to overview");
+						// Debug.Log("Play thrid to overview");
 						director.Play(thridToOverview);
 					} else {
 						dist = baseRoutePoints[towardPointIndex];
@@ -121,13 +140,19 @@ public class TrainController : MonoBehaviour {
 					dist = bRoutePoints[towardPointIndex];
 				}
 			}
+
 			// Vector3 rotateVector = dist - transform.position;
 			// Quaternion newRotation = Quaternion.LookRotation(rotateVector);
+			// if (newRotation.eulerAngles.y - 160 > 0) {
+			// 	newRotation = Quaternion.Euler(-90 - 2 * (90 + newRotation.eulerAngles.x), newRotation.eulerAngles.y - 180, newRotation.eulerAngles.z);
+			// }
+			// transform.rotation = newRotation;
 			// transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, RotateSpeed * Time.deltaTime);
 
 			transform.LookAt(dist);
-			// if (transform.eulerAngles.y - 179 > 0) {
-			// transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 0, transform.eulerAngles.z);
+
+			// if (transform.eulerAngles.y - 160 > 0) {
+			// 	transform.rotation = Quaternion.Euler(-90 - 2 * (90 + transform.eulerAngles.x), transform.eulerAngles.y - 180, transform.eulerAngles.z);
 			// }
 
 			transform.position += transform.forward * speed * Time.deltaTime;
@@ -137,7 +162,7 @@ public class TrainController : MonoBehaviour {
 		if (enablePressToBoost)
 			if (Input.GetKeyDown(KeyCode.LeftShift)) {
 				pressToBoost = !pressToBoost;
-				Debug.Log("Switch Boost");
+				// Debug.Log("Switch Boost");
 				if (pressToBoost) StartBoost();
 				else StopBoost();
 			}

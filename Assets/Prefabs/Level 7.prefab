@@ -952,6 +952,7 @@ GameObject:
   - component: {fileID: 54984979324617512}
   - component: {fileID: 136487659102922774}
   - component: {fileID: 114930783488028976}
+  - component: {fileID: 82367795414422622}
   m_Layer: 10
   m_Name: men
   m_TagString: Untagged
@@ -3491,6 +3492,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 4, z: 2}
   m_Center: {x: 0, y: 2, z: 1}
+--- !u!82 &82367795414422622
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1680875211830930}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114049759991910716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3540,9 +3621,15 @@ MonoBehaviour:
   bRoute: {fileID: 114402979352707466}
   aRouteKills: 1
   bRouteKills: 1
-  aRouteDialog: A man wants to kill himself
-  bRouteDialog: safe choice
-  ironyDialog: But you only got a plunger
+  aRouteDialogEN: A man wants to kill himself
+  bRouteDialogEN: safe choice
+  ironyDialogEN: But you only have a plunger
+  aRouteDialogCN: "\u4E00\u4E2A\u8BD5\u56FE\u81EA\u6740\u7684\u4EBA"
+  bRouteDialogCN: "\u65E0\u4EBA\u7684\u8F68\u9053"
+  ironyDialogCN: "\u7136\u800C\u4F60\u53EA\u662F\u62FF\u7740\u9A6C\u6876\u585E\u8DEF\u8FC7"
+  aRouteDialogJP: A man wants to kill himself
+  bRouteDialogJP: "\u7121\u4EBA\u306E\u30EC\u30FC\u30EB"
+  ironyDialogJP: "\u6B8B\u5FF5\u306A\u304C\u3089\u305D\u308C\u306F\u30EC\u30D0\u30FC\u3067\u306F\u306A\u304F\u30E9\u30D0\u30FC\u30AB\u30C3\u30D7\u306E\u898B\u9593\u9055\u3044\u3060"
   overviewCMAnchor: {fileID: 4893737668698160}
   aRouteCMAnchor: {fileID: 4125463266103280}
   bRouteCMAnchor: {fileID: 4113552088452250}
@@ -3644,6 +3731,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cf74607e3f305428f7ecfcf11b7583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: d74ac001d961bb44a94f74c1e55203b4, type: 3}
+  - {fileID: 8300000, guid: 5f97cdff0d286bc4aa44bfe5f889a2b1, type: 3}
+  - {fileID: 8300000, guid: e26aacae1ffbb4b47ae0ed41b9cbdbc5, type: 3}
+  - {fileID: 8300000, guid: 591360161f4c1cb47955a85afbeb4b2f, type: 3}
+  - {fileID: 8300000, guid: 75081e26dec0e104eb878c62b60eb63d, type: 3}
+  - {fileID: 8300000, guid: d1ebd46686ec3b04589149030618931c, type: 3}
+  - {fileID: 8300000, guid: 08694f9a096d2ba459955732695e76bb, type: 3}
+  source: {fileID: 0}
   rb: {fileID: 0}
 --- !u!136 &136195770947874164
 CapsuleCollider:

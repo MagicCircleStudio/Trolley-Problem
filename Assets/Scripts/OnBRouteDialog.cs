@@ -10,13 +10,12 @@ public class OnBRouteDialog : MonoBehaviour {
 	public LevelManager levelManager;
 
 	private void OnEnable() {
-		Debug.Log("Enable a dialog");
-		
-		menu.ShowDialog(levelManager.level.bRouteDialog);
+		// Debug.Log("Enable a dialog");
+		menu.ShowDialog(levelManager.level.GetBRouteDialog(menu.languageChoice));
 	}
 
 	private void OnDisable() {
-		Debug.Log("Disable a dialog");
+		// Debug.Log("Disable a dialog");
 		menu.CloseDialog();
 	}
 }

@@ -78,6 +78,8 @@ public class LevelManager : MonoBehaviour {
 
 	public void GenerateNextLevel(Vector3 position, Vector3 forward, Quaternion rotation) {
 		currentLevelIndex++;
+		if (currentLevelIndex >= levels.Length)
+			currentLevelIndex = 0;
 		var levelObj = Instantiate(levels[currentLevelIndex], position + forward * gaugeLength, rotation);
 		levelPool.Add(levelObj);
 		if (level && level.enableBoost) {
@@ -120,7 +122,7 @@ public class LevelManager : MonoBehaviour {
 					trainController.enablePressToBoost = true;
 				}
 
-				if (level.ironyDialog != "") {
+				if (level.GetIronyDialog(0) != "") {
 					trainController.director.Play(trainController.overviewToThridWithIrony);
 				} else {
 					trainController.director.Play(trainController.overviewToThrid);
@@ -138,7 +140,7 @@ public class LevelManager : MonoBehaviour {
 					trainController.routeSelected = 0;
 				}
 
-				if (level.ironyDialog != "") {
+				if (level.GetIronyDialog(0) != "") {
 					trainController.director.Play(trainController.overviewToThridWithIrony);
 				} else {
 					trainController.director.Play(trainController.overviewToThrid);
