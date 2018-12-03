@@ -33,3 +33,5 @@ https://github.com/MagicCircleStudio/Trolley-Problem
 https://magic-circle-studio.itch.io/trolley-problem-must-be-sacrisfied
 * macOS
 https://magic-circle-studio.itch.io/trolley-problem-must-be-sacrisfied
+
+## Screen Shot
