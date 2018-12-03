@@ -3315,7 +3315,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1459069795631946}
   m_LocalRotation: {x: 0.25914842, y: -0.6912075, z: 0.29004854, w: 0.6090535}
-  m_LocalPosition: {x: 3.2499995, y: 10, z: 43}
+  m_LocalPosition: {x: 11, y: 13.75, z: 44.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4665068820529890}
@@ -5435,6 +5435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   choiceType: 1
+  menu: {fileID: 0}
+  hintBoardStr: 
 --- !u!114 &114369034597721966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5544,6 +5546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   choiceType: 0
+  menu: {fileID: 0}
+  hintBoardStr: You can now press shift to boost
 --- !u!114 &114430864716786242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5612,8 +5616,11 @@ MonoBehaviour:
   baseRoute: {fileID: 114640803340081782}
   aRoute: {fileID: 114381795949271936}
   bRoute: {fileID: 114314028727153150}
-  aRouteDialog: 5 people and a very sick 360 degree rotation rail.
-  bRouteDialog: safe choice
+  aRouteKills: 5
+  bRouteKills: 0
+  aRouteDialog: a damn sick roller coasters flip!
+  bRouteDialog: safe choice or 5 people and ...
+  ironyDialog: 
   overviewCMAnchor: {fileID: 4544080956569630}
   aRouteCMAnchor: {fileID: 4143310182880036}
   bRouteCMAnchor: {fileID: 4575643493590952}

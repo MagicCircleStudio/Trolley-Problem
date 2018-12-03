@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour {
 
 	public GameObject[] levels;
 	public int currentLevelIndex = -1;
-	public Level currentLevel;
+	public Level level;
 
 	public GameObject overviewCM;
 	public GameObject aRouteCM;
@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour {
 	public List<GameObject> lastLevelPool = new List<GameObject>();
 	public List<GameObject> levelPool = new List<GameObject>();
 
-	public TimelineAsset defaultOverview;
+	public TimelineAsset defalutOverview;
 	public TimelineAsset abRouteView;
 
 	public void GenerateGauges(Vector3 position, Vector3 forward, Quaternion rotation) {
@@ -32,28 +32,72 @@ public class LevelManager : MonoBehaviour {
 		levelPool.Add(gauge);
 	}
 
+	public void AssignLevel(Level level) {
+		// Debug.Log("Assign Level");
+		// Debug.Log(level.gameObject.transform.position);
+		this.level = level;
+		if (level && level.enableBoost) {
+			if (!trainController.pressToBoost)
+				trainController.StopBoost();
+		}
+
+		trainController.thridToOverview = defalutOverview;
+		overviewCM.transform.position = level.overviewCMAnchor.position;
+		overviewCM.transform.rotation = level.overviewCMAnchor.rotation;
+		if (level.aRouteCMAnchor && level.bRouteCMAnchor) {
+			aRouteCM.transform.position = level.aRouteCMAnchor.position;
+			aRouteCM.transform.rotation = level.aRouteCMAnchor.rotation;
+			bRouteCM.transform.position = level.bRouteCMAnchor.position;
+			bRouteCM.transform.rotation = level.bRouteCMAnchor.rotation;
+			trainController.thridToOverview = abRouteView;
+		}
+
+		trainController.UpdateRoutePoints(level.baseRoute, level.aRoute, level.bRoute);
+		trainController.enteringNextLevel = false;
+
+		for (int i = lastLevelPool.Count - 1; i >= 0; i--) {
+			var obj = lastLevelPool[i];
+			lastLevelPool.RemoveAt(i);
+			Destroy(obj);
+		}
+		lastLevelPool.Clear();
+		levelPool.Clear();
+		levelPool.Add(level.gameObject);
+		lastLevelPool.AddRange(levelPool);
+	}
+
+	public Level GenerateLevelOnly(int levelIndex, Vector3 position, Vector3 forward, Quaternion rotation) {
+		var levelObj = Instantiate(levels[levelIndex], position + forward * gaugeLength, rotation);
+		if (level && level.enableBoost) {
+			if (!trainController.pressToBoost)
+				trainController.StopBoost();
+		}
+
+		return levelObj.GetComponent<Level>();
+	}
+
 	public void GenerateNextLevel(Vector3 position, Vector3 forward, Quaternion rotation) {
 		currentLevelIndex++;
 		var levelObj = Instantiate(levels[currentLevelIndex], position + forward * gaugeLength, rotation);
 		levelPool.Add(levelObj);
-		if (currentLevel && currentLevel.enableBoost) {
+		if (level && level.enableBoost) {
 			if (!trainController.pressToBoost)
 				trainController.StopBoost();
 		}
-		currentLevel = levelObj.GetComponent<Level>();
+		level = levelObj.GetComponent<Level>();
 
-		trainController.thridToOverview = defaultOverview;
-		overviewCM.transform.position = currentLevel.overviewCMAnchor.position;
-		overviewCM.transform.rotation = currentLevel.overviewCMAnchor.rotation;
-		if (currentLevel.aRouteCMAnchor && currentLevel.bRouteCMAnchor) {
-			aRouteCM.transform.position = currentLevel.aRouteCMAnchor.position;
-			aRouteCM.transform.rotation = currentLevel.aRouteCMAnchor.rotation;
-			bRouteCM.transform.position = currentLevel.bRouteCMAnchor.position;
-			bRouteCM.transform.rotation = currentLevel.bRouteCMAnchor.rotation;
+		trainController.thridToOverview = defalutOverview;
+		overviewCM.transform.position = level.overviewCMAnchor.position;
+		overviewCM.transform.rotation = level.overviewCMAnchor.rotation;
+		if (level.aRouteCMAnchor && level.bRouteCMAnchor) {
+			aRouteCM.transform.position = level.aRouteCMAnchor.position;
+			aRouteCM.transform.rotation = level.aRouteCMAnchor.rotation;
+			bRouteCM.transform.position = level.bRouteCMAnchor.position;
+			bRouteCM.transform.rotation = level.bRouteCMAnchor.rotation;
 			trainController.thridToOverview = abRouteView;
 		}
 
-		trainController.UpdateRoutePoints(currentLevel.baseRoute, currentLevel.aRoute, currentLevel.bRoute);
+		trainController.UpdateRoutePoints(level.baseRoute, level.aRoute, level.bRoute);
 		trainController.enteringNextLevel = false;
 
 		for (int i = lastLevelPool.Count - 1; i >= 0; i--) {
@@ -71,18 +115,35 @@ public class LevelManager : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.A)) {
 				trainController.routeSelected = 0;
 				trainController.enableMove = true;
-				if (currentLevel.enableBoost) {
+				if (level.enableBoost) {
 					trainController.StartBoost();
 					trainController.enablePressToBoost = true;
 				}
-				trainController.director.Play(trainController.overviewToThrid);
+
+				if (level.ironyDialog != "") {
+					trainController.director.Play(trainController.overviewToThridWithIrony);
+				} else {
+					trainController.director.Play(trainController.overviewToThrid);
+				}
+
 				trainController.enableInput = false;
 			}
 			if (Input.GetKeyDown(KeyCode.B)) {
-				trainController.routeSelected = 1;
+
 				trainController.enableMove = true;
-				currentLevel.Switch();
-				trainController.director.Play(trainController.overviewToThrid);
+				if (level.switchBar) {
+					level.SwitchAnimation();
+					trainController.routeSelected = 1;
+				} else {
+					trainController.routeSelected = 0;
+				}
+
+				if (level.ironyDialog != "") {
+					trainController.director.Play(trainController.overviewToThridWithIrony);
+				} else {
+					trainController.director.Play(trainController.overviewToThrid);
+				}
+
 				trainController.enableInput = false;
 			}
 		}

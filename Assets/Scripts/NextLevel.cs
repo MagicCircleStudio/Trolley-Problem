@@ -5,15 +5,28 @@ using UnityEngine;
 public class NextLevel : MonoBehaviour {
 
 	public LevelManager levelManager;
-	// public int level = -1;
+	public MenuController menu;
+
+	public int levelSelected = -1;
+	public Transform levelEndPosition;
 
 	private void Start() {
-		levelManager = FindObjectOfType<LevelManager>();
+		if (!levelManager)
+			levelManager = FindObjectOfType<LevelManager>();
+		if (!menu)
+			menu = FindObjectOfType<MenuController>();
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		
-		levelManager.GenerateNextLevel(transform.position, transform.forward, transform.rotation);
+		if (levelSelected == -1) {
+			levelManager.GenerateNextLevel(transform.position, transform.forward, transform.rotation);
+			menu.CloseHintBoard();
+		} else {
+			var level = levelManager.GenerateLevelOnly(levelManager.currentLevelIndex, levelEndPosition.position, levelEndPosition.forward, levelEndPosition.rotation);
+			levelEndPosition.GetComponent<ExitDetector>().levelToAssign = level;
+			menu.CloseHintBoard();
+		}
+
 	}
 
 }

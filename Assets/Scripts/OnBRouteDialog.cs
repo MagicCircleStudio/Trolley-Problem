@@ -12,7 +12,7 @@ public class OnBRouteDialog : MonoBehaviour {
 	private void OnEnable() {
 		Debug.Log("Enable a dialog");
 		
-		menu.ShowDialog(levelManager.currentLevel.bRouteDialog);
+		menu.ShowDialog(levelManager.level.bRouteDialog);
 	}
 
 	private void OnDisable() {

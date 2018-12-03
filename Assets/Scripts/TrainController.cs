@@ -16,6 +16,8 @@ public class TrainController : MonoBehaviour {
 	public int towardPointIndex = 0;
 	public float distGap = 0.5f;
 
+	public int totalKills = 0;
+
 	[HideInInspector] public List<Vector3> baseRoutePoints = new List<Vector3>();
 	[HideInInspector] public List<Vector3> aRoutePoints = new List<Vector3>();
 	[HideInInspector] public List<Vector3> bRoutePoints = new List<Vector3>();
@@ -25,6 +27,7 @@ public class TrainController : MonoBehaviour {
 	public TimelineAsset thridToOverview;
 	// public TimelineAsset overviewTodetail;
 	public TimelineAsset overviewToThrid;
+	public TimelineAsset overviewToThridWithIrony;
 	// public TimelineAsset overviewToFirst;
 	// public TimelineAsset thridToFirst;
 	// public TimelineAsset firstToOverview;
@@ -77,7 +80,7 @@ public class TrainController : MonoBehaviour {
 					if (towardPointIndex >= baseRoutePoints.Count) {
 						dist = transform.position + transform.forward;
 						towardPointIndex = 0;
-						routeSelected = 1;
+						routeSelected = 0;
 						enableMove = false;
 
 						Debug.Log("Play thrid to overview");

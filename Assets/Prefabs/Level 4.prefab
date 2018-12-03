@@ -2264,7 +2264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220235700954394}
   m_LocalRotation: {x: 0.25914842, y: -0.6912075, z: 0.29004854, w: 0.6090535}
-  m_LocalPosition: {x: 8, y: 10, z: 45}
+  m_LocalPosition: {x: 8.5, y: 10.37, z: 43.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4715461563243298}
@@ -2329,7 +2329,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104235721183948}
   m_LocalRotation: {x: 0.11725889, y: -0.8359474, z: 0.3164795, w: 0.43276203}
-  m_LocalPosition: {x: 0.24999994, y: 8.5, z: 44.75}
+  m_LocalPosition: {x: 1.69, y: 8.77, z: 45.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4715461563243298}
@@ -4231,6 +4231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   choiceType: 1
+  menu: {fileID: 0}
+  hintBoardStr: 
 --- !u!114 &114351906915805898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4281,8 +4283,11 @@ MonoBehaviour:
   baseRoute: {fileID: 114943697260539862}
   aRoute: {fileID: 114710224327531880}
   bRoute: {fileID: 114227566227046944}
+  aRouteKills: 7
+  bRouteKills: 2
   aRouteDialog: 7 rule-breaker
   bRouteDialog: 2 innocent people who obey the rule
+  ironyDialog: 
   overviewCMAnchor: {fileID: 4571525678669198}
   aRouteCMAnchor: {fileID: 4582028965933754}
   bRouteCMAnchor: {fileID: 4646912258136512}
@@ -4313,6 +4318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   choiceType: 0
+  menu: {fileID: 0}
+  hintBoardStr: 
 --- !u!114 &114582321715934806
 MonoBehaviour:
   m_ObjectHideFlags: 1

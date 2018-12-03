@@ -9,6 +9,8 @@ public class MenuController : MonoBehaviour {
 	public GameObject sideMenu;
 	public GameObject dialog;
 	public Text dialogText;
+	public GameObject hintBoard;
+	public Text hintBoardText;
 
 	public void OnMenuButtonPressed() {
 		// Debug.Log("Menu");
@@ -33,6 +35,17 @@ public class MenuController : MonoBehaviour {
 		}
 	}
 
+	public void CloseHintBoard() {
+		hintBoard.SetActive(false);
+	}
+
+	public void ShowHintBoard(string str) {
+		if (str != "") {
+			hintBoardText.text = str;
+			hintBoard.SetActive(true);
+		}
+	}
+
 	public void CloseDialog() {
 		dialog.SetActive(false);
 	}
@@ -42,6 +55,7 @@ public class MenuController : MonoBehaviour {
 		sideMenu.SetActive(false);
 		// dialogText.text = "君の名は？你的名字是？What's your name?";
 		dialog.SetActive(false);
+		hintBoard.SetActive(false);
 	}
 
 	private void Update() {

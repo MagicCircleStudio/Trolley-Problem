@@ -20,7 +20,7 @@ public class Network : MonoBehaviour {
 	/// <param name="var1">Param 1</param>
 	/// <param name="var2">Param 2</param>
 	/// <returns></returns>
-	static string queryPage(string func, string var1, string var2 = "") {
+	public static string queryPage(string func, string var1, string var2 = "") {
 		try {
 			WebClient MyWebClient = new WebClient();
 			MyWebClient.Credentials = CredentialCache.DefaultCredentials;
@@ -33,7 +33,7 @@ public class Network : MonoBehaviour {
 	}
 
 	private void Start() {
-		Debug.Log(queryPage("finish", "3"));
+		// Debug.Log(queryPage("finish", "3"));
 	}
 
 }

@@ -11,7 +11,7 @@ public class OnARouteDialog : MonoBehaviour {
 
 	private void OnEnable() {
 		Debug.Log("Enable a dialog");
-		menu.ShowDialog(levelManager.currentLevel.aRouteDialog);
+		menu.ShowDialog(levelManager.level.aRouteDialog);
 	}
 
 	private void OnDisable() {

@@ -1825,13 +1825,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015796303355098}
-  m_LocalRotation: {x: 0.11725889, y: -0.8359474, z: 0.3164795, w: 0.43276203}
-  m_LocalPosition: {x: 0.24999994, y: 8.5, z: 44.75}
+  m_LocalRotation: {x: 0.13616228, y: -0.82123303, z: 0.35290742, w: 0.42719138}
+  m_LocalPosition: {x: 0.85, y: 8.17, z: 44.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4337710412138964}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.105003, y: -122.51, z: 6.2260003}
 --- !u!4 &4430948012807870
 Transform:
   m_ObjectHideFlags: 1
@@ -2566,8 +2566,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1883297303542740}
-  m_LocalRotation: {x: 0.25914842, y: -0.6912075, z: 0.29004854, w: 0.6090535}
-  m_LocalPosition: {x: 8, y: 10, z: 45}
+  m_LocalRotation: {x: 0.279895, y: -0.68084764, z: 0.31359595, w: 0.5998024}
+  m_LocalPosition: {x: 7.973406, y: 10.102762, z: 43.71733}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4337710412138964}
@@ -3902,8 +3902,11 @@ MonoBehaviour:
   baseRoute: {fileID: 114581219171291320}
   aRoute: {fileID: 114798058613478282}
   bRoute: {fileID: 114328472153773448}
+  aRouteKills: 5
+  bRouteKills: 1
   aRouteDialog: 5 strangers
   bRouteDialog: your mother, your whole world
+  ironyDialog: 
   overviewCMAnchor: {fileID: 4415817966554722}
   aRouteCMAnchor: {fileID: 4974010739903752}
   bRouteCMAnchor: {fileID: 4422449795235392}
@@ -3969,6 +3972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   choiceType: 1
+  menu: {fileID: 0}
+  hintBoardStr: 
 --- !u!114 &114407143427968118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3982,6 +3987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   choiceType: 0
+  menu: {fileID: 0}
+  hintBoardStr: 
 --- !u!114 &114581219171291320
 MonoBehaviour:
   m_ObjectHideFlags: 1

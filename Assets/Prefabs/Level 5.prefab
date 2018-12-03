@@ -2280,13 +2280,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1235018072460052}
-  m_LocalRotation: {x: 0.11029271, y: -0.71600276, z: 0.11622427, w: 0.6794612}
-  m_LocalPosition: {x: -2.75, y: 1.25, z: 40.5}
+  m_LocalRotation: {x: 0.086364865, y: -0.7196425, z: 0.09100957, w: 0.6829152}
+  m_LocalPosition: {x: -2.74, y: 1.25, z: 40.259995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4399258540256056}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 18.44, y: -93.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.415001, y: -93.00001, z: 0}
 --- !u!4 &4518799385974754
 Transform:
   m_ObjectHideFlags: 1
@@ -4691,6 +4691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   choiceType: 1
+  menu: {fileID: 0}
+  hintBoardStr: 
 --- !u!114 &114377158018094266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4763,6 +4765,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   choiceType: 0
+  menu: {fileID: 0}
+  hintBoardStr: 
 --- !u!114 &114594260640903330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4777,8 +4781,11 @@ MonoBehaviour:
   baseRoute: {fileID: 114667278643061180}
   aRoute: {fileID: 114124000302519668}
   bRoute: {fileID: 114377158018094266}
+  aRouteKills: 6
+  bRouteKills: 0
   aRouteDialog: 6 human ingots
   bRouteDialog: 6 gold ingots
+  ironyDialog: 
   overviewCMAnchor: {fileID: 4518799385974754}
   aRouteCMAnchor: {fileID: 4611107882212136}
   bRouteCMAnchor: {fileID: 4509422486577776}
